@@ -8,6 +8,7 @@ import {
 } from "../graphql/queries";
 import {
   FinalWithdrawal,
+  FinalWithdrawalInput,
   PendingWithdrawal,
   RelayedWithdrawal,
   RelayedWithdrawalResponse,
@@ -294,5 +295,17 @@ export class BridgeService {
         };
       })
     );
+  }
+  static getFinalWithdrawalInput(
+    finalWithdrawal: FinalWithdrawal
+  ): FinalWithdrawalInput {
+    return {
+      account: finalWithdrawal.account,
+      target: finalWithdrawal.target,
+      sender: finalWithdrawal.sender,
+      message: finalWithdrawal.message,
+      messageNonce: finalWithdrawal.messageNonce,
+      proof: finalWithdrawal.proof,
+    };
   }
 }

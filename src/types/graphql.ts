@@ -54,6 +54,15 @@ export interface FinalWithdrawal extends PendingWithdrawal {
   proof: any;
 }
 
+export interface FinalWithdrawalInput {
+  account: string;
+  target: string;
+  sender: string;
+  message: string;
+  messageNonce: string;
+  proof: any;
+}
+
 export interface SentMessageResponse {
   sentMessages: SentMessage[];
 }

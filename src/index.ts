@@ -73,6 +73,16 @@ async function main() {
       finalWithdrawals
     );
     console.log("Generated final withdrawals!");
+
+    console.log("Generating final withdrawal inputs...");
+    const finalWithdrawalInputs = finalWithdrawals.map((finalWithdrawal) =>
+      BridgeService.getFinalWithdrawalInput(finalWithdrawal)
+    );
+    await FileStorageService.writeToFile(
+      `${storageDir}/finalWithdrawalInputs.json`,
+      finalWithdrawalInputs
+    );
+    console.log("Generated final withdrawal inputs!");
   } catch (error) {
     console.error("Error in main:", error);
   }
