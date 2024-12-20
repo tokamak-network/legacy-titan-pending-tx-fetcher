@@ -5,12 +5,12 @@ import { BigNumber, Contract, ethers } from "ethers";
 import {
   remove0x,
   encodeCrossDomainMessageV0,
-  predeploys,
   toHexString,
 } from "@tokamak-network/core-utils";
 import { PendingWithdrawal } from "../types/graphql";
 import * as RLP from "@ethersproject/rlp";
 import StateCommitmentChainAbi from "../constant/abis/StateCommitmentChain.json";
+import { predeploys } from "@eth-optimism/contracts";
 
 export async function getMessageProof(params: {
   l1Provider: ethers.providers.JsonRpcProvider;
@@ -65,7 +65,7 @@ export async function getMessageProof(params: {
   const stateTrieProof = await makeStateTrieProof(
     l2Provider as ethers.providers.JsonRpcProvider,
     l2BlockNumber,
-    predeploys.L2ToL1MessagePasser,
+    predeploys.OVM_L2ToL1MessagePasser,
     messageSlot
   );
 
