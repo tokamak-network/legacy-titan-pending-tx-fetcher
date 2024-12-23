@@ -301,6 +301,7 @@ export class BridgeService {
   ): FinalWithdrawalInput {
     return {
       account: finalWithdrawal.account,
+      msgHash: finalWithdrawal.msgHash,
       target: finalWithdrawal.target,
       sender: finalWithdrawal.sender,
       message: finalWithdrawal.message,

@@ -56,6 +56,7 @@ export interface FinalWithdrawal extends PendingWithdrawal {
 
 export interface FinalWithdrawalInput {
   account: string;
+  msgHash: string;
   target: string;
   sender: string;
   message: string;
